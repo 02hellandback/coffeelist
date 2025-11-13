@@ -1,6 +1,6 @@
 // App.jsx
 import React from "react";
-import { tokyoCoffeeList } from "./data/tokyoCoffeeList";
+import { CoffeeList } from "./data/coffeelist.js";
 
 function App() {
   const list = tokyoCoffeeList;
