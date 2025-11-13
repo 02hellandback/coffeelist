@@ -3,7 +3,7 @@ import React from "react";
 import { CoffeeList } from "./data/coffeelist.js";
 
 function App() {
-  const list = tokyoCoffeeList;
+  const list = CoffeeList;
 
   return (
     <div style={styles.app}>
