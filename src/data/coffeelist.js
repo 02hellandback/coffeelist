@@ -1,7 +1,7 @@
 
 
 // data/tokyoCoffeeList.js
-export const tokyoCoffeeList = {
+export const CoffeeList = {
   id: "tokyo-third-wave",
   title: "Tokyo Third-Wave Coffee Walk",
   shortDescription:
