@@ -1,9 +1,11 @@
-// App.jsx
+// src/App.jsx
 import React from "react";
-import { CoffeeList } from "./data/CoffeeList.js";
+import { tokyoCoffeeList } from "./data/CoffeeList";
 
 function App() {
   const list = CoffeeList;
+
+  const categories = ["Specialty", "Kissa / Classic / Vibes"];
 
   return (
     <div style={styles.app}>
@@ -26,12 +28,25 @@ function App() {
         </section>
 
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Coffee Shops</h2>
-          <div style={styles.cardGrid}>
-            {list.places.map((place) => (
-              <CoffeeCard key={place.id} place={place} />
-            ))}
-          </div>
+          <h2 style={styles.sectionTitle}>Coffee Spots</h2>
+
+          {categories.map((category) => {
+            const places = list.places.filter(
+              (place) => place.category === category
+            );
+            if (!places.length) return null;
+
+            return (
+              <div key={category} style={styles.categoryBlock}>
+                <h3 style={styles.categoryTitle}>{category}</h3>
+                <div style={styles.cardGrid}>
+                  {places.map((place) => (
+                    <CoffeeCard key={place.id} place={place} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </section>
       </main>
     </div>
@@ -45,15 +60,23 @@ function CoffeeCard({ place }) {
 
   return (
     <article style={styles.card}>
-      <h3 style={styles.cardTitle}>{place.name}</h3>
+      <div style={styles.cardHeaderRow}>
+        <h3 style={styles.cardTitle}>{place.name}</h3>
+        {place.category && (
+          <span style={styles.categoryPill}>{place.category}</span>
+        )}
+      </div>
+
       <p style={styles.cardMeta}>
         <strong>Area:</strong> {place.neighborhood || "Tokyo"}
       </p>
+
       {place.address && (
         <p style={styles.cardMeta}>
           <strong>Address:</strong> {place.address}
         </p>
       )}
+
       {place.notes && <p style={styles.cardBody}>{place.notes}</p>}
 
       <div style={styles.cardActions}>
@@ -106,6 +129,14 @@ const styles = {
     color: "#d1d5db",
     whiteSpace: "pre-line",
   },
+  categoryBlock: {
+    marginBottom: "24px",
+  },
+  categoryTitle: {
+    fontSize: "1.2rem",
+    marginBottom: "8px",
+    color: "#facc15",
+  },
   cardGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
@@ -118,9 +149,23 @@ const styles = {
     border: "1px solid #1f2937",
     boxShadow: "0 10px 25px rgba(0, 0, 0, 0.35)",
   },
+  cardHeaderRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    gap: "8px",
+    marginBottom: "4px",
+  },
   cardTitle: {
-    fontSize: "1.2rem",
-    marginBottom: "8px",
+    fontSize: "1.1rem",
+    margin: 0,
+  },
+  categoryPill: {
+    fontSize: "0.7rem",
+    padding: "4px 8px",
+    borderRadius: "999px",
+    border: "1px solid #38bdf8",
+    whiteSpace: "nowrap",
   },
   cardMeta: {
     fontSize: "0.9rem",
