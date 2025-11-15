@@ -1,6 +1,6 @@
-// src/data/CoffeeList.js
+// src/data/tokyoCoffeeList.js
 
-export const CoffeeList = {
+export const tokyoCoffeeList = {
   id: "tokyo-coffee",
   title: "Tokyo Coffee",
   shortDescription:
@@ -26,6 +26,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Scandi-style café and bar; light, bright, and good for lingering.",
       mapsQuery: "Fuglen Coffee Roasters Shibuya Tokyo",
+      lat: 35.6703,
+      lng: 139.6908,
     },
     {
       id: "fuglen-asakusa",
@@ -35,6 +37,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Relaxed outpost near Asakusa, nice stop after temple sightseeing.",
       mapsQuery: "Fuglen Coffee Roasters Asakusa Tokyo",
+      lat: 35.7138,
+      lng: 139.7967,
     },
     {
       id: "verve-shinjuku",
@@ -44,6 +48,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "California-origin brand; polished, spacious, and easy to drop into.",
       mapsQuery: "Verve Coffee Roasters Shinjuku Tokyo",
+      lat: 35.6901,
+      lng: 139.7003,
     },
     {
       id: "switch-meguro",
@@ -53,6 +59,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Neighborhood specialty spot; compact but serious about beans.",
       mapsQuery: "Switch Coffee Tokyo Meguro",
+      lat: 35.6343,
+      lng: 139.7151,
     },
     {
       id: "onibus-nakameguro",
@@ -62,6 +70,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Tiny but iconic; great stop right by Nakameguro station.",
       mapsQuery: "Onibus Coffee Nakameguro Tokyo",
+      lat: 35.6439,
+      lng: 139.6993,
     },
     {
       id: "ogawa-shimokitazawa",
@@ -71,6 +81,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Lab-like vibe with a wide range of beans and brewing options.",
       mapsQuery: "Ogawa Coffee Laboratory Shimokitazawa Tokyo",
+      lat: 35.6617,
+      lng: 139.6671,
     },
     {
       id: "bear-pond-shimokitazawa",
@@ -80,6 +92,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Espresso-focused, cult favorite with a very particular style.",
       mapsQuery: "Bear Pond Espresso Shimokitazawa Tokyo",
+      lat: 35.6615,
+      lng: 139.6679,
     },
     {
       id: "coffee-county-shimokitazawa",
@@ -89,6 +103,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Relaxed specialty shop with a warm, neighborly feel.",
       mapsQuery: "Coffee County Shimokitazawa Tokyo",
+      lat: 35.6612,
+      lng: 139.6685,
     },
     {
       id: "glitch-ginza",
@@ -98,6 +114,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Light-roast focused, clean and minimal; good for filter coffee fans.",
       mapsQuery: "Glitch Coffee Ginza Tokyo",
+      lat: 35.6764,
+      lng: 139.766,
     },
     {
       id: "nexpect-kodenmacho",
@@ -107,6 +125,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Smaller specialty spot around Kodenmacho in Chuo ward.",
       mapsQuery: "Nexpect Coffee Kodenmacho Chuo Tokyo",
+      lat: 35.6904,
+      lng: 139.7801,
     },
 
     // -------------------
@@ -120,6 +140,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Classic kissa-style spot; more about the atmosphere than minimalism.",
       mapsQuery: "Kabuki coffee Taito Tokyo",
+      lat: 35.7119,
+      lng: 139.79,
     },
     {
       id: "satei-hato-shibuya",
@@ -129,6 +151,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Legendary kissaten; dark, quiet, and focused on hand-drip coffee.",
       mapsQuery: "Satei Hato Shibuya Tokyo",
+      lat: 35.6625,
+      lng: 139.703,
     },
     {
       id: "nishiya-taito",
@@ -138,6 +162,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Retro-style coffee stand with strong kissaten energy.",
       mapsQuery: "Nishiya Coffee Stand Taito Tokyo",
+      lat: 35.7125,
+      lng: 139.79,
     },
     {
       id: "cafe-luigi-harajuku",
@@ -147,6 +173,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "Cozy spot near Harajuku with classic Western-style café vibes.",
       mapsQuery: "Cafe Luigi Harajuku Tokyo",
+      lat: 35.6713,
+      lng: 139.7035,
     },
     {
       id: "aux-bacchanales-ginza",
@@ -156,7 +184,8 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
       address: "",
       notes: "French café/brasserie feel; good for people-watching and a coffee.",
       mapsQuery: "Aux Bacchanales Ginza Tokyo",
+      lat: 35.6715,
+      lng: 139.765,
     },
   ],
 };
-
