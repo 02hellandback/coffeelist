@@ -1,10 +1,11 @@
 // src/App.jsx
 import React from "react";
-import { CoffeeList } from "./data/CoffeeList";
+import { tokyoCoffeeList } from "./data/tokyoCoffeeList";
+import CoffeeMap from "./components/CoffeeMap";
+import "leaflet/dist/leaflet.css";
 
 function App() {
-  const list = CoffeeList;
-
+  const list = tokyoCoffeeList;
   const categories = ["Specialty", "Kissa / Classic / Vibes"];
 
   return (
@@ -15,6 +16,10 @@ function App() {
       </header>
 
       <main style={styles.main}>
+        {/* Map section */}
+        <CoffeeMap places={list.places} />
+
+        {/* Overview */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Overview / Write-Up</h2>
           <p style={styles.paragraph}>
@@ -27,6 +32,7 @@ function App() {
           </p>
         </section>
 
+        {/* Coffee spots grouped by category */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Coffee Spots</h2>
 
@@ -193,3 +199,4 @@ const styles = {
 };
 
 export default App;
+
