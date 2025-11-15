@@ -53,7 +53,7 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
     },
     {
       id: "switch-meguro",
-      name: "Switch Coffee (Meguro)",
+      name: "Switch Coffee Meguro",
       category: "Specialty",
       neighborhood: "Meguro",
       address: "",
@@ -64,7 +64,7 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
     },
     {
       id: "onibus-nakameguro",
-      name: "Onibus Coffee (Nakameguro)",
+      name: "Onibus Coffee",
       category: "Specialty",
       neighborhood: "Nakameguro",
       address: "",
@@ -75,7 +75,7 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
     },
     {
       id: "ogawa-shimokitazawa",
-      name: "Ogawa Coffee Laboratory (Shimokitazawa)",
+      name: "Ogawa Coffee Laboratory",
       category: "Specialty",
       neighborhood: "Shimokitazawa",
       address: "",
@@ -97,7 +97,7 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
     },
     {
       id: "coffee-county-shimokitazawa",
-      name: "Coffee County (Shimokitazawa)",
+      name: "Coffee County Shimokitazawa",
       category: "Specialty",
       neighborhood: "Shimokitazawa",
       address: "",
@@ -108,7 +108,7 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
     },
     {
       id: "glitch-ginza",
-      name: "Glitch Coffee (Ginza)",
+      name: "Glitch Coffee Ginza",
       category: "Specialty",
       neighborhood: "Ginza",
       address: "",
@@ -178,7 +178,7 @@ Use it as a loose guide, not a strict route. Pick an area you’re in, choose a 
     },
     {
       id: "aux-bacchanales-ginza",
-      name: "Aux Bacchanales (Ginza)",
+      name: "Cafe Aux Bacchanales",
       category: "Kissa / Classic / Vibes",
       neighborhood: "Ginza",
       address: "",
