@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Popup, CircleMarker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 function CoffeeMap({ places }) {
+function CoffeeMap({ places, headerContent, title = "Map", frameStyle }) {
   const placesWithCoords = places.filter(
     (p) => typeof p.lat === "number" && typeof p.lng === "number"
   );
@@ -27,11 +28,24 @@ function CoffeeMap({ places }) {
       <h2 style={{ fontSize: "1.4rem", marginBottom: "12px" }}>Map</h2>
       <div
         style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "12px",
+          marginBottom: "12px",
+        }}
+      >
+        <h2 style={{ fontSize: "1.4rem", margin: 0 }}>{title}</h2>
+        {headerContent}
+      </div>
+      <div
+        style={{
           height: "400px",
           width: "100%",
           borderRadius: "16px",
           overflow: "hidden",
           border: "1px solid #1f2937",
+          ...(frameStyle || {}),
         }}
       >
         <MapContainer
@@ -43,6 +57,8 @@ function CoffeeMap({ places }) {
           <TileLayer
             attribution='&copy; <a href="hhttps://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
   url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
           />
           {placesWithCoords.map((place) => (
             <CircleMarker
@@ -68,6 +84,3 @@ function CoffeeMap({ places }) {
       </div>
     </div>
   );
-}
-
-export default CoffeeMap;
