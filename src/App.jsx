@@ -1,12 +1,48 @@
 // src/App.jsx
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { tokyoCoffeeList } from "./data/tokyoCoffeeList";
 import CoffeeMap from "./components/CoffeeMap";
+import GoogleMapView from "./components/GoogleMapView";
 import "leaflet/dist/leaflet.css";
 
 function App() {
   const list = tokyoCoffeeList;
   const categories = ["Specialty", "Kissa / Classic / Vibes"];
+  const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const [mapProvider, setMapProvider] = useState(
+    googleMapsApiKey ? "google" : "leaflet"
+  );
+
+  const mapOptions = useMemo(
+    () => [
+      { id: "leaflet", label: "OpenStreetMap" },
+      { id: "google", label: "Google Maps", disabled: !googleMapsApiKey },
+    ],
+    [googleMapsApiKey]
+  );
+
+  const renderMapToggle = () => (
+    <div style={styles.toggleGroup}>
+      {mapOptions.map((option) => {
+        const isActive = mapProvider === option.id;
+        return (
+          <button
+            key={option.id}
+            type="button"
+            style={{
+              ...styles.toggleButton,
+              ...(isActive ? styles.toggleButtonActive : {}),
+              ...(option.disabled ? styles.toggleButtonDisabled : {}),
+            }}
+            onClick={() => !option.disabled && setMapProvider(option.id)}
+            disabled={option.disabled}
+          >
+            {option.label}
+          </button>
+        );
+      })}
+    </div>
+  );
 
   return (
     <div style={styles.app}>
@@ -17,7 +53,20 @@ function App() {
 
       <main style={styles.main}>
         {/* Map section */}
-        <CoffeeMap places={list.places} />
+        {mapProvider === "google" ? (
+          <GoogleMapView
+            places={list.places}
+            apiKey={googleMapsApiKey}
+            headerContent={renderMapToggle()}
+            frameStyle={styles.mapFrame}
+          />
+        ) : (
+          <CoffeeMap
+            places={list.places}
+            headerContent={renderMapToggle()}
+            frameStyle={styles.mapFrame}
+          />
+        )}
 
         {/* Overview */}
         <section style={styles.section}>
@@ -129,6 +178,31 @@ const styles = {
   sectionTitle: {
     fontSize: "1.4rem",
     marginBottom: "12px",
+  },
+  mapFrame: {
+    backgroundColor: "#0b1226",
+  },
+  toggleGroup: {
+    display: "inline-flex",
+    gap: "8px",
+  },
+  toggleButton: {
+    borderRadius: "999px",
+    border: "1px solid #1f2937",
+    backgroundColor: "#0f172a",
+    color: "#e5e7eb",
+    padding: "6px 12px",
+    cursor: "pointer",
+    fontSize: "0.9rem",
+  },
+  toggleButtonActive: {
+    borderColor: "#38bdf8",
+    color: "#e0f2fe",
+    boxShadow: "0 0 0 1px rgba(56, 189, 248, 0.35)",
+  },
+  toggleButtonDisabled: {
+    opacity: 0.5,
+    cursor: "not-allowed",
   },
   paragraph: {
     lineHeight: 1.6,
