@@ -2,23 +2,20 @@
 import React, { useMemo, useState } from "react";
 import { tokyoCoffeeList } from "./data/tokyoCoffeeList";
 import CoffeeMap from "./components/CoffeeMap";
-import GoogleMapView from "./components/GoogleMapView";
+import MapCnMapView from "./components/MapCnMapView";
 import "leaflet/dist/leaflet.css";
 
 function App() {
   const list = tokyoCoffeeList;
   const categories = ["Specialty", "Kissa / Classic / Vibes"];
-  const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-  const [mapProvider, setMapProvider] = useState(
-    googleMapsApiKey ? "google" : "leaflet"
-  );
+  const [mapProvider, setMapProvider] = useState("mapcn");
 
   const mapOptions = useMemo(
     () => [
+      { id: "mapcn", label: "MapCN" },
       { id: "leaflet", label: "OpenStreetMap" },
-      { id: "google", label: "Google Maps", disabled: !googleMapsApiKey },
     ],
-    [googleMapsApiKey]
+    []
   );
 
   const renderMapToggle = () => (
@@ -53,10 +50,9 @@ function App() {
 
       <main style={styles.main}>
         {/* Map section */}
-        {mapProvider === "google" ? (
-          <GoogleMapView
+        {mapProvider === "mapcn" ? (
+          <MapCnMapView
             places={list.places}
-            apiKey={googleMapsApiKey}
             headerContent={renderMapToggle()}
             frameStyle={styles.mapFrame}
           />
@@ -109,7 +105,7 @@ function App() {
 }
 
 function CoffeeCard({ place }) {
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  const mapCnUrl = `https://www.amap.com/search?query=${encodeURIComponent(
     place.mapsQuery || place.address || place.name
   )}`;
 
@@ -136,12 +132,12 @@ function CoffeeCard({ place }) {
 
       <div style={styles.cardActions}>
         <a
-          href={googleMapsUrl}
+          href={mapCnUrl}
           target="_blank"
           rel="noopener noreferrer"
           style={styles.mapButton}
         >
-          Open in Google Maps
+          Open in MapCN
         </a>
       </div>
     </article>
@@ -273,4 +269,3 @@ const styles = {
 };
 
 export default App;
-
